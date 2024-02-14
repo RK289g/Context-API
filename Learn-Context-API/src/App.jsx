@@ -15,6 +15,10 @@ function App() {
         <Item name="iPhone" price={15000} img={iPhoneImg} />
         <Item name="iPod" price={2000} img={iPodImg} />
         <Item name="iKid" price={1300} img={iKidImg} />
+        <Item name="iPod" price={2000} img={iPodImg} />
+        <Item name="iPod" price={2000} img={iPodImg} />
+        <Item name="iPod" price={2000} img={iPodImg} />
+        
       </div>
       <Cart />
       </div>

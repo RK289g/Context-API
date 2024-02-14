@@ -1,38 +1,39 @@
 .cart {
-  width: 600px;
-  border: 1px solid red;
-  border-radius: 25px;
-  overflow: hidden;
-  position: relative;
-}
-
-h3 {
-  width: 100%;
-  background-color: orange;
-  font-size: 45px;
-  margin: 0;
-}
-
-.total {
-  position: absolute;
-  bottom: 0;
-  background-color: orange;
-  width: 100%;
-  margin: 0;
-  text-align: center;
-  font-size: 35px;
-}
-
-
-/* Style for table */
-table {
+    width: 600px;
+    border: 1px solid red;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    height: 80vh;
+  }
+  
+  h3 {
+    width: 100%;
+    background-color: orange;
+    font-size: 45px;
+    margin: 0;
+  }
+  
+  .total {
+    position: absolute;
+    bottom: 0;
+    background-color: orange;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    font-size: 35px;
+  }
+  
+  /* Adjust overflow to auto */
+  .cart table {
     border-collapse: collapse;
     width: 100%;
     font-size: 20px;
+    overflow-y: auto; /* Add scrollbar for vertical overflow */
   }
   
   /* Style for table header */
-  th {
+  .cart th {
     background-color: #f2f2f2;
     border: 1px solid #dddddd;
     text-align: center;
@@ -40,19 +41,19 @@ table {
   }
   
   /* Style for table data */
-  td {
+  .cart td {
     border: 1px solid #dddddd;
     text-align: center;
     padding: 8px;
   }
   
   /* Style for odd table rows */
-  tr:nth-child(odd) {
+  .cart tr:nth-child(odd) {
     background-color: #f9f9f9;
   }
   
   /* Style for even table rows */
-  tr:nth-child(even) {
+  .cart tr:nth-child(even) {
     background-color: #ffffff;
   }
   

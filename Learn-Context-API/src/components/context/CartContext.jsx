@@ -11,8 +11,10 @@ export const useCart = () => {
 const CartProvider = (props) => {
   const [items, setItems] = useState([]);
 
+  const total = items.reduce((acc, item) => acc + item.price, 0);
+
   return (
-    <CartContext.Provider value={{ items, setItems }}>
+    <CartContext.Provider value={{ items, setItems, total }}>
       {props.children}
     </CartContext.Provider>
   );

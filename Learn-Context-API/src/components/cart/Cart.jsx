@@ -4,11 +4,11 @@ import { useCart } from "../context/CartContext";
 const Cart = () => {
   const cart = useCart();
 
-  const total = cart.items.reduce((acc, item) => acc + item.price, 0);
+  console.log(cart);
 
   return (
     <div className="cart">
-      <h3>Cart</h3>
+      <h3>Cart {cart.items.length}</h3>
       <table>
         <thead>
           <tr>
@@ -25,7 +25,7 @@ const Cart = () => {
           ))}
         </tbody>
       </table>
-      <h4 className="total">Total bill: ${total}</h4>
+      <h4 className="total">Total bill: ${cart?.total}</h4>
     </div>
   );
 };

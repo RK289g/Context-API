@@ -1,10 +1,9 @@
+// import React from "react";
 import "./Cart.css";
 import { useCart } from "../context/CartContext";
 
 const Cart = () => {
   const cart = useCart();
-
-  console.log(cart);
 
   return (
     <div className="cart">
@@ -14,6 +13,8 @@ const Cart = () => {
           <tr>
             <th>Item</th>
             <th>Price</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
           </tr>
         </thead>
         <tbody>
@@ -21,6 +22,8 @@ const Cart = () => {
             <tr key={index}>
               <td>{item.name}</td>
               <td>${item.price}</td>
+              <td>{item.quantity}</td>
+              <td>${item.price * item.quantity}</td>
             </tr>
           ))}
         </tbody>

@@ -11,9 +11,8 @@ export const useCart = () => {
 const CartProvider = (props) => {
   const [items, setItems] = useState([]);
 
-  const updateQuantity = (index, newQuantity) => {
-    if (newQuantity <= 0) {
-      // If the new quantity is less than or equal to 0, remove the item from the cart
+  const updateQuantity = (index, newQuantity, remove = false) => {
+    if (newQuantity <= 0 || remove) {
       const updatedItems = [...items];
       updatedItems.splice(index, 1); // Remove the item at the specified index
       setItems(updatedItems);
@@ -24,11 +23,11 @@ const CartProvider = (props) => {
       setItems(updatedItems);
     }
   };
+  
 
-  const total = items.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
+  
+
+  const total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
     <CartContext.Provider value={{ items, setItems, updateQuantity, total }}>

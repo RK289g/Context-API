@@ -3,7 +3,7 @@ import "./Cart.css";
 import { useCart } from "../context/CartContext";
 
 const Cart = () => {
-  const { items, updateQuantity } = useCart();
+  const { items, updateQuantity, total } = useCart();
 
   const decreaseQuantity = (index) => {
     console.log("Decreasing quantity for index:", index);
@@ -13,6 +13,10 @@ const Cart = () => {
   const increaseQuantity = (index) => {
     console.log("Increasing quantity for index:", index);
     updateQuantity(index, items[index].quantity + 1);
+  };
+
+  const removeItem = (index) => {
+    updateQuantity(index, 0, true);
   };
 
   return (
@@ -25,6 +29,7 @@ const Cart = () => {
             <th>Price</th>
             <th>Quantity</th>
             <th>Total Price</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -48,14 +53,19 @@ const Cart = () => {
                 </button>
               </td>
               <td>${item.price * item.quantity}</td>
+              <td>
+                <button
+                  onClick={() => removeItem(index)}
+                  className="button-remove"
+                >
+                  Remove
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <h4 className="total">
-        Total bill: $
-        {items.reduce((acc, item) => acc + item.price * item.quantity, 0)}
-      </h4>
+      <h4 className="total">Total bill: ${total}</h4>
     </div>
   );
 };
